@@ -42,7 +42,7 @@ int isnum(char *integer)
 
 	for (i = 0; integer[i]; i++)
 	{
-		if (integer[i] < 48 || integer[i] > 57)
+		if ((integer[i] < 48 || integer[i] > 57) && integer[i] != '-')
 			return (-1);
 	}
 	return (0);
