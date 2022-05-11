@@ -1,8 +1,7 @@
 
-pall 
-push 0 k
-asdads
-push 9
+                                                           pall 12312 
+                           push                          0                  k
+push 9as
 pall
 push -12
 pall
