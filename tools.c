@@ -57,7 +57,9 @@ int isnum(char *integer)
 	return (0);
 }
 /**
- *
+ * suprtab - delete tab
+ * @buffer: buffer
+ * Return: void
  *
  */
 void suprtab(char *buffer)
