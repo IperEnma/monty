@@ -1,8 +1,9 @@
 #include "main.h"
 /**
- *
- *
- *
+ * exe_pop - the function executes f_pop
+ * @head: first node of the stack
+ * @lin: number line
+ * Return: 0 success or -1 if fail
  */
 int exe_pop(stack_t **head, unsigned int lin)
 {
@@ -11,53 +12,65 @@ int exe_pop(stack_t **head, unsigned int lin)
 	if (*head == NULL)
 	{
 		sprintf(err, "%d", lin);
-		write(2, "<L", 2);
+		write(2, "L", 1);
 		write(2, err, strlen(err));
-		write(2, ">: can't pop an empty stack\n", 28);
+		write(2, ": can't pop an empty stack\n", 27);
 		return (-1);
 	}
 	f_pop(head, lin);
-	return (0);	
+	return (0);
 }
+/**
+ * exe_swap - the function executes f_swap
+ * @head: first node of the stack
+ * @lin: number line
+ * Return: 0 success or -1 if fail
+ */
 int exe_swap(stack_t **head, unsigned int lin)
 {
 	char err[20];
 	int len = 0;
 
 	len = lenstack(head);
-	
 	if (len < 2)
 	{
 		sprintf(err, "%d", lin);
-		write(2, "<L", 2);
+		write(2, "L", 1);
 		write(2, err, strlen(err));
-		write(2, ">: can't swap, stack too short\n", 31);
+		write(2, ": can't swap, stack too short\n", 30);
 		return (-1);
 	}
 	f_swap(head, lin);
 	return (0);
 }
+/**
+ * exe_add - the function executes f_add
+ * @head: first node of the stack
+ * @lin: number line
+ * Return: 0 success or -1 if fail
+ */
 int exe_add(stack_t **head, unsigned int lin)
 {
 	char err[20];
 	int len = 0;
-	
+
 	len = lenstack(head);
 	if (len < 2)
 	{
 		sprintf(err, "%d", lin);
-		write(2, "<L", 2);
+		write(2, "L", 1);
 		write(2, err, strlen(err));
-		write(2, ">: can't add, stack too short\n", 31);
+		write(2, ": can't add, stack too short\n", 30);
 		return (-1);
-        }
+	}
 	f_add(head, lin);
 	return (0);
 }
 /**
- *
- *
- *
+ * exe_nop - the function executes f_nop
+ * @head: first node of the stack
+ * @lin: number line
+ * Return: 0 success or -1 if fail
  */
 int exe_nop(stack_t **head, unsigned int lin)
 {
@@ -65,28 +78,31 @@ int exe_nop(stack_t **head, unsigned int lin)
 	return (0);
 }
 /**
- *
- *
- *
+ * exec - check which function was entered
+ * @head: first node of the stack
+ * @l: number line
+ * @function: pointer to function
+ * @integer: new stack
+ * Return: 0 success or -1 if fail
  */
-int execute(instruction_t function, char *integer, stack_t **head, unsigned int lin)
+int exec(instruction_t function, char *integer, stack_t **head, unsigned int l)
 {
 	int status = 0;
 
 	if (function.f == f_push)
-		status = exe_push(function, integer, head, lin);
+		status = push(function, integer, head, l);
 	if (function.f == f_pall)
 		status = exe_pall(head);
 	if (function.f == f_pint)
-		status = exe_pint(head, lin);
+		status = exe_pint(head, l);
 	if (function.f == f_pop)
-		status = exe_pop(head, lin);
+		status = exe_pop(head, l);
 	if (function.f == f_swap)
-		status = exe_swap(head, lin);
+		status = exe_swap(head, l);
 	if (function.f == f_add)
-		status = exe_add(head, lin);
+		status = exe_add(head, l);
 	if (function.f == f_nop)
-		status = exe_nop(head, lin);
+		status = exe_nop(head, l);
 	return (status);
 
 }
