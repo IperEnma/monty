@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 /**
  * freelist - clean the list
  * @head: first node of the stack

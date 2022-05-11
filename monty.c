@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 unsigned int line;
 /**
  * get_op_func - function selector
