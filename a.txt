@@ -1,7 +1,4 @@
-
-                                                           pall 12312 
-                           push                          0                  k
-push 9as
+push -13
 pall
-push -12
+push 1-1
 pall
