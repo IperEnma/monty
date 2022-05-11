@@ -39,7 +39,8 @@ int lenstack(stack_t **head)
 int isnum(char *integer)
 {
 	int i = 0;
-
+	if (integer == NULL)
+		return (-1);
 	if (integer[i] == '-' && strlen(integer) == 1)
 		return (-1);
 
