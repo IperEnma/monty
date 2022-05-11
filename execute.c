@@ -51,13 +51,12 @@ int exe_swap(stack_t **head, unsigned int lin)
  */
 int exe_add(stack_t **head, unsigned int lin)
 {
-	char err[20];
 	int len = 0;
 
 	len = lenstack(head);
 	if (len < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n");
+		fprintf(stderr, "L%d: can't add, stack too short\n", lin);
 		return (-1);
 	}
 	f_add(head, lin);
