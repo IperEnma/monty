@@ -107,5 +107,4 @@ int main(int argc, char *argv[])
 	fclose(fp);
 	if (status == -1)
 		exit(EXIT_FAILURE);
-	return (0);
-}
+	return (0); }
