@@ -40,6 +40,9 @@ int isnum(char *integer)
 {
 	int i = 0;
 
+	if (integer[i] == '-' && strlen(integer) == 1)
+		return (-1);
+
 	for (i = 0; integer[i]; i++)
 	{
 		if ((integer[i] < 48 || integer[i] > 57) && integer[i] != '-')
