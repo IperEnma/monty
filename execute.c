@@ -57,10 +57,7 @@ int exe_add(stack_t **head, unsigned int lin)
 	len = lenstack(head);
 	if (len < 2)
 	{
-		sprintf(err, "%d", lin);
-		write(2, "L", 1);
-		write(2, err, strlen(err));
-		write(2, ": can't add, stack too short\n", 30);
+		fprintf(stderr, "L%d: can't add, stack too short\n");
 		return (-1);
 	}
 	f_add(head, lin);
