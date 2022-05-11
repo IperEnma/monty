@@ -43,14 +43,9 @@ int push(instruction_t function, char *integer, stack_t **head, unsigned int l)
  */
 int exe_pint(stack_t **head, unsigned int lin)
 {
-	char err[20];
-
 	if (*head == NULL)
 	{
-		sprintf(err, "%d", lin);
-		write(2, "L", 1);
-		write(2, err, strlen(err));
-		write(2, ": can't pint, stack empty\n", 27);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", lin);
 		return (-1);
 	}
 	f_pint(head, lin);
