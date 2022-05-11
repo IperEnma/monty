@@ -83,9 +83,8 @@ int main(int argc, char *argv[])
 	if (fp == NULL)
 	{
 		write(2, "Error: Can't open file ", 23);
-		write(2, "<", 1);
 		write(2, argv[1], strlen(argv[1]));
-		write(2, ">\n", 2);
+		write(2, "\n", 1);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&buffer, &size, fp) != -1)
