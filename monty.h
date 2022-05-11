@@ -40,6 +40,7 @@ void f_swap(stack_t **stack, unsigned int line_number);
 void f_add(stack_t **stack, unsigned int line_number);
 void f_nop(stack_t **stack, unsigned int line_number);
 int isnum(char *integer);
+void suprtab(char *buffer);
 int lenstack(stack_t **head);
 void freelist(stack_t *head);
 int exec(instruction_t function, char *integer, stack_t **head, unsigned int lin);

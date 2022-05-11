@@ -90,6 +90,7 @@ int main(int argc, char *argv[])
 	while (getline(&buffer, &size, fp) != -1)
 	{
 		line++;
+		suprtab(buffer);
 		copy = strdup(buffer);
 		copy[strlen(copy) - 1] = '\0';
 		status = tokenizer(&push, copy);
