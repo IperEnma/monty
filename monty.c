@@ -1,67 +1,5 @@
 #include "main.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-unsigned int line = 0;
-/**
- *
- *
- *
- */
-void f_pall(stack_t **stack, unsigned int line_number)
-{
-	stack_t *aux = *stack;
-
-	while (aux)
-	{
-		printf("%d\n", aux->n);
-		aux = aux->next;
-	}
-}
-/**
- *
- *
- *
- */
-void f_push(stack_t **stack, unsigned int line_number)
-{
-	stack_t *new = NULL;
-
-	new = malloc(sizeof(stack_t));
-	if (new == NULL)
-	{
-		write(2, "Error: malloc failed", 21);
-		exit (EXIT_FAILURE);
-	}
-	new->n = line_number;
-	new->next = NULL;
-	new->prev = NULL;
-	if (*stack == NULL)
-		*stack = new;
-	else
-	{
-		new->next = *stack;
-		(*stack)->prev = new;
-		*stack = new;
-	}
-}
-/**
- *
- *
- *
- */
-int isnum(char *integer)
-{
-	int i = 0;
-	
-	for(i = 0; integer[i]; i++)
-	{
-		if (integer[i] < 48 || integer[i] > 57)
-			return (-1);
-	}
-	return (0);	
-}
+unsigned int line;
 /**
  *
  *
@@ -112,42 +50,17 @@ int tokenizer(stack_t **head, char *buffer)
 		write(2,">: unknown instruction <opcode>\n", 32);
 		return (-1);
 	}
-	
-	if (function.f == f_push)
-	{
-		status = isnum(integer);
-		if (status == -1)
-		{
-			sprintf(err, "%d", line);
-			write(2, "L<",2);
-			write(2, err, strlen(err));
-			write(2,">: usage: push integer\n", 23);
-			return (-1);
-		}
-		num = atoi(integer);
-		function.f(head, num);
-	}
-	 if (function.f == f_pall)
-	 {
-		 f_pall(head, line);
-	 }
-	return (0);
-}
-/**
- *
- *
- *
- */
-void load_ins()
-{
 
+	status = execute(function, integer, head, line);
+
+	return (status);
 }
 /**
  *
  *
  *
  */
-void main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	FILE *fp;
 	char *buffer = NULL;
@@ -185,4 +98,5 @@ void main(int argc, char *argv[])
 	}
 	free(copy);
 	fclose(fp);
+	return(0);
 }

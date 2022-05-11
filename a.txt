@@ -2,5 +2,4 @@ push 52
 push 5
 push 7
     push 7   asdlkasdasd
-push asdasd
 pall
