@@ -14,10 +14,14 @@ void (*get_op_func(char *s))
 		{"push", f_push},
 		{"pall", f_pall},
 		{"pint", f_pint},
+		{"pop", f_pop},
+		{"swap", f_swap},
+		{"add", f_add},
+		{"nop", f_nop},
 		{NULL, NULL}
 	};
 
-	while (i < 3)
+	while (i < 7)
 	{
 		if (strcmp(s, funciones[i].opcode) == 0)
 			return (funciones[i].f);
@@ -92,11 +96,18 @@ int main(int argc, char *argv[])
 		copy[strlen(copy) - 1] = '\0';
 		status = tokenizer(&push, copy);
 		if (status == -1)
-			exit (EXIT_FAILURE);
+		{	
+			free(copy);
+			break;
+		}
 		if (character == -1)
 			break;
+		free(copy);
 	}
-	free(copy);
+	free(buffer);
+	freelist(push);
 	fclose(fp);
+	if (status == -1)
+		exit (EXIT_FAILURE);
 	return(0);
 }

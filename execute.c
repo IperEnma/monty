@@ -4,41 +4,8 @@
  *
  *
  */
-int exe_pall(stack_t **head)
+int exe_pop(stack_t **head, unsigned int lin)
 {
-	f_pall(head, 2);
-}
-/**
- *
- *
- *
- */
-int exe_push(instruction_t function, char *integer, stack_t **head, unsigned int lin)
-{
-	int status = 0, num = 0;
-	char err[20];
-
-	status = isnum(integer);
-	
-	if (status == -1)
-	{
-		sprintf(err, "%d", lin);
-		write(2, "L<",2);
-		write(2, err, strlen(err));
-		write(2,">: usage: push integer\n", 23);
-		return (-1);
-	}
-	num = atoi(integer);
-	function.f(head, num);
-	return (0);
-}
-/**
- *
- *
- */
-int exe_pint(stack_t **head, unsigned int lin)
-{
-	stack_t *aux = NULL;
 	char err[20];
 
 	if (*head == NULL)
@@ -46,10 +13,55 @@ int exe_pint(stack_t **head, unsigned int lin)
 		sprintf(err, "%d", lin);
 		write(2, "<L", 2);
 		write(2, err, strlen(err));
-		write(2, ">: can't pint, stack empty\n", 28);
+		write(2, ">: can't pop an empty stack\n", 28);
 		return (-1);
 	}
-	f_pint(head, lin);
+	f_pop(head, lin);
+	return (0);	
+}
+int exe_swap(stack_t **head, unsigned int lin)
+{
+	char err[20];
+	int len = 0;
+
+	len = lenstack(head);
+	
+	if (len < 2)
+	{
+		sprintf(err, "%d", lin);
+		write(2, "<L", 2);
+		write(2, err, strlen(err));
+		write(2, ">: can't swap, stack too short\n", 31);
+		return (-1);
+	}
+	f_swap(head, lin);
+	return (0);
+}
+int exe_add(stack_t **head, unsigned int lin)
+{
+	char err[20];
+	int len = 0;
+	
+	len = lenstack(head);
+	if (len < 2)
+	{
+		sprintf(err, "%d", lin);
+		write(2, "<L", 2);
+		write(2, err, strlen(err));
+		write(2, ">: can't add, stack too short\n", 31);
+		return (-1);
+        }
+	f_add(head, lin);
+	return (0);
+}
+/**
+ *
+ *
+ *
+ */
+int exe_nop(stack_t **head, unsigned int lin)
+{
+	f_nop(head, lin);
 	return (0);
 }
 /**
@@ -67,6 +79,14 @@ int execute(instruction_t function, char *integer, stack_t **head, unsigned int 
 		status = exe_pall(head);
 	if (function.f == f_pint)
 		status = exe_pint(head, lin);
+	if (function.f == f_pop)
+		status = exe_pop(head, lin);
+	if (function.f == f_swap)
+		status = exe_swap(head, lin);
+	if (function.f == f_add)
+		status = exe_add(head, lin);
+	if (function.f == f_nop)
+		status = exe_nop(head, lin);
 	return (status);
 
 }

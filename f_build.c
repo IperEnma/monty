@@ -1,4 +1,21 @@
 #include "main.h"
+/**
+ *
+ *
+ *
+ */
+void f_pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *aux = *stack;
+
+	*stack = (*stack)->next;
+	free(aux);
+}
+/**
+ *
+ *
+ *
+ */
 void f_pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = *stack;
@@ -47,4 +64,18 @@ void f_push(stack_t **stack, unsigned int line_number)
                 *stack = new;
         }
 }
+/**
+ *
+ *
+ *
+ */
+void f_swap(stack_t **stack, unsigned int line_number)
+{
+	stack_t *aux = *stack;
+	int temp = 0;
 
+	aux = aux->next;
+	temp = (*stack)->n;
+	(*stack)->n = aux->n;
+	aux->n = temp;
+}
