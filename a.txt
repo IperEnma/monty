@@ -1,5 +1,7 @@
-pall
-push 2
+asdas
+pall 
+push 0 k
+push 9
 pall
 push -12
 pall
