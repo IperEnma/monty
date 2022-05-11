@@ -1,5 +1,7 @@
-push 52
-push 5
-push 7
-    push 7   asdlkasdasd
-pall
+pint
+push 1
+pint
+push 2
+pint
+push 3
+pint

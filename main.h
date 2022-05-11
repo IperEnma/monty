@@ -34,8 +34,10 @@ typedef struct instruction_s
 } instruction_t;
 void f_pall(stack_t **stack, unsigned int line_number);
 void f_push(stack_t **stack, unsigned int line_number);
+void f_pint(stack_t **stack, unsigned int line_number);
 int isnum(char *integer);
 int execute(instruction_t function, char *integer, stack_t **head, unsigned int lin);
 int exe_push(instruction_t function, char *integer, stack_t **head, unsigned int lin);
 int exe_pall(stack_t **head);
+int exe_pint(stack_t **head, unsigned int lin);
 #endif

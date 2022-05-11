@@ -13,10 +13,11 @@ void (*get_op_func(char *s))
 	{
 		{"push", f_push},
 		{"pall", f_pall},
+		{"pint", f_pint},
 		{NULL, NULL}
 	};
 
-	while (i < 2)
+	while (i < 3)
 	{
 		if (strcmp(s, funciones[i].opcode) == 0)
 			return (funciones[i].f);
@@ -50,9 +51,8 @@ int tokenizer(stack_t **head, char *buffer)
 		write(2,">: unknown instruction <opcode>\n", 32);
 		return (-1);
 	}
-
 	status = execute(function, integer, head, line);
-
+	
 	return (status);
 }
 /**

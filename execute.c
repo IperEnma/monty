@@ -6,10 +6,7 @@
  */
 int exe_pall(stack_t **head)
 {
-	if (*head == NULL)
-		return (-1);
-	else
-		f_pall(head, 2);
+	f_pall(head, 2);
 }
 /**
  *
@@ -33,7 +30,27 @@ int exe_push(instruction_t function, char *integer, stack_t **head, unsigned int
 	}
 	num = atoi(integer);
 	function.f(head, num);
+	return (0);
+}
+/**
+ *
+ *
+ */
+int exe_pint(stack_t **head, unsigned int lin)
+{
+	stack_t *aux = NULL;
+	char err[20];
 
+	if (*head == NULL)
+	{
+		sprintf(err, "%d", lin);
+		write(2, "<L", 2);
+		write(2, err, strlen(err));
+		write(2, ">: can't pint, stack empty\n", 28);
+		return (-1);
+	}
+	f_pint(head, lin);
+	return (0);
 }
 /**
  *
@@ -48,6 +65,8 @@ int execute(instruction_t function, char *integer, stack_t **head, unsigned int 
 		status = exe_push(function, integer, head, lin);
 	if (function.f == f_pall)
 		status = exe_pall(head);
+	if (function.f == f_pint)
+		status = exe_pint(head, lin);
 	return (status);
 
 }
