@@ -41,8 +41,8 @@ int tokenizer(stack_t **head, char *buffer)
 	int status = 0;
 	instruction_t function;
 
-	cmd = strtok(buffer, " ");
-	integer = strtok(NULL, " ");
+	cmd = strtok(buffer, " \n\f\v\t\r");
+	integer = strtok(NULL, " \n\f\v\t\r");
 
 	if (cmd == NULL)
 		return (0);
