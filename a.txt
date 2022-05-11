@@ -1,6 +1,7 @@
-asdas
+
 pall 
 push 0 k
+asdads
 push 9
 pall
 push -12
