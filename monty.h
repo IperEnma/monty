@@ -41,6 +41,7 @@ void f_add(stack_t **stack, unsigned int line_number);
 void f_sub(stack_t **stack, unsigned int line_number);
 void f_div(stack_t **stack, unsigned int line_number);
 void f_mul(stack_t **stack, unsigned int line_number);
+void f_mod(stack_t **stack, unsigned int line_number);
 void f_nop(stack_t **stack, unsigned int line_number);
 int isnum(char *integer);
 void suprtab(char *buffer);
@@ -56,5 +57,6 @@ int exe_add(stack_t **head, unsigned int lin);
 int exe_sub(stack_t **head, unsigned int lin);
 int exe_div(stack_t **head, unsigned int lin);
 int exe_mul(stack_t **head, unsigned int lin);
+int exe_mod(stack_t **head, unsigned int lin);
 int exe_nop(stack_t **head, unsigned int lin);
 #endif

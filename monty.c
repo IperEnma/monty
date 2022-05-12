@@ -7,7 +7,7 @@ unsigned int line;
  */
 void (*get_op_func(char *s))(stack_t **, unsigned int)
 {
-	int i = 0;
+	unsigned long int i = 0;
 
 	instruction_t funciones[] = {
 		{"push", f_push},
@@ -20,10 +20,11 @@ void (*get_op_func(char *s))(stack_t **, unsigned int)
 		{"sub", f_sub},
 		{"div", f_div},
 		{"mul", f_mul},
+		{"mod", f_mod},
 		{NULL, NULL}
 	};
 
-	while (i < 10)
+	while (i < sizeof(funciones))
 	{
 		if (strcmp(s, funciones[i].opcode) == 0)
 			return (funciones[i].f);
