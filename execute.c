@@ -101,6 +101,8 @@ int exec(instruction_t function, char *integer, stack_t **head, unsigned int l)
 		status = exe_sub(head, l);
 	if (function.f == f_div)
 		status = exe_div(head, l);
+	if (function.f == f_mul)
+		status = exe_mul(head, l);
 	if (function.f == f_nop)
 		status = exe_nop(head, l);
 	return (status);
