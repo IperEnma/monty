@@ -51,3 +51,22 @@ int exe_pint(stack_t **head, unsigned int lin)
 	f_pint(head, lin);
 	return (0);
 }
+/**
+ * exe_sub - the function executes f_sub
+ * @head: first node of the stack
+ * @lin: number line
+ * Return: 0 success or -1 if fail
+ */
+int exe_sub(stack_t **head, unsigned int lin)
+{
+	int len = 0;
+
+	len = lenstack(head);
+	if (len < 2)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", lin);
+		return (-1);
+	}
+	f_sub(head, lin);
+	return (0);
+}

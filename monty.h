@@ -51,4 +51,5 @@ int exe_pop(stack_t **head, unsigned int lin);
 int exe_swap(stack_t **head, unsigned int lin);
 int exe_add(stack_t **head, unsigned int lin);
 int exe_nop(stack_t **head, unsigned int lin);
+void f_sub(stack_t **stack, unsigned int line_number);
 #endif
