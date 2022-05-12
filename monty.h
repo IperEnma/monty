@@ -38,6 +38,7 @@ void f_pint(stack_t **stack, unsigned int linie_number);
 void f_pop(stack_t **stack, unsigned int line_number);
 void f_swap(stack_t **stack, unsigned int line_number);
 void f_add(stack_t **stack, unsigned int line_number);
+void f_sub(stack_t **stack, unsigned int line_number);
 void f_nop(stack_t **stack, unsigned int line_number);
 int isnum(char *integer);
 void suprtab(char *buffer);
@@ -50,6 +51,6 @@ int exe_pint(stack_t **head, unsigned int lin);
 int exe_pop(stack_t **head, unsigned int lin);
 int exe_swap(stack_t **head, unsigned int lin);
 int exe_add(stack_t **head, unsigned int lin);
+int exe_sub(stack_t **head, unsigned int lin);
 int exe_nop(stack_t **head, unsigned int lin);
-void f_sub(stack_t **stack, unsigned int line_number);
 #endif

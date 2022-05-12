@@ -16,12 +16,12 @@ void (*get_op_func(char *s))(stack_t **, unsigned int)
 		{"pop", f_pop},
 		{"swap", f_swap},
 		{"add", f_add},
-		{"sub", f_sub},
 		{"nop", f_nop},
+		{"sub", f_sub},
 		{NULL, NULL}
 	};
 
-	while (i < 7)
+	while (i < 8)
 	{
 		if (strcmp(s, funciones[i].opcode) == 0)
 			return (funciones[i].f);
