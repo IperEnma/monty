@@ -41,6 +41,6 @@ int exe_mod(stack_t **head, unsigned int lin)
 		return (-1);
 	}
 
-	f_div(head, lin);
+	f_mod(head, lin);
 	return (0);
 }
