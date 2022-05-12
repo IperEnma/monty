@@ -38,6 +38,25 @@ void f_sub(stack_t **stack, unsigned int line_number)
 	f_push(stack, sub);
 }
 /**
+ * f_div - divs the top two elements of the stack
+ * @stack: first node of the stack
+ * @line_number: number line
+ * Return: void
+ */
+void f_div(stack_t **stack, unsigned int line_number)
+{
+	stack_t *aux = *stack;
+	int div = 0;
+
+	(void)line_number;
+	div = aux->n;
+	aux = aux->next;
+	div = aux->n / div;
+	f_pop(stack, div);
+	f_pop(stack, div);
+	f_push(stack, div);
+}
+/**
  * f_nop - doesn’t do anything
  * @stack: firts node of the stack
  * @line_number: number line

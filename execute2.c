@@ -70,3 +70,28 @@ int exe_sub(stack_t **head, unsigned int lin)
 	f_sub(head, lin);
 	return (0);
 }
+/**
+ * exe_div - the function executes f_div
+ * @head: first node of the stack
+ * @lin: number line
+ * Return: 0 success or -1 if fail
+ */
+int exe_div(stack_t **head, unsigned int lin)
+{
+	int len = 0;
+
+	len = lenstack(head);
+	if (len < 2)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", lin);
+		return (-1);
+	}
+	if ((*head)->n == 0)
+	{
+		fprintf(stderr, "L%d: division by zero\n", lin);
+		return (-1);
+	}
+
+	f_div(head, lin);
+	return (0);
+}
