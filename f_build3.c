@@ -13,7 +13,7 @@ void f_mod(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	mod = aux->n;
 	aux = aux->next;
-	mod = aux->n / mod;
+	mod = aux->n % mod;
 	f_pop(stack, mod);
 	f_pop(stack, mod);
 	f_push(stack, mod);
