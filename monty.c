@@ -48,6 +48,8 @@ int tokenizer(stack_t **head, char *buffer)
 	cmd = strtok(buffer, " \n\f\v\t\r");
 	integer = strtok(NULL, " \n\f\v\t\r");
 
+	if (buffer[0] == 35)
+		return (0);
 	if (cmd == NULL)
 		return (0);
 	function.f = get_op_func(cmd);
