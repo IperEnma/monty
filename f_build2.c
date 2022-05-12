@@ -32,7 +32,7 @@ void f_sub(stack_t **stack, unsigned int line_number)
 	(void)line_number;
 	sub = aux->n;
 	aux = aux->next;
-	sub = sub + aux->n;
+	sub = sub - aux->n;
 	f_pop(stack, sub);
 	f_pop(stack, sub);
 	f_push(stack, sub);
