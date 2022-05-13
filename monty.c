@@ -52,7 +52,7 @@ int tokenizer(stack_t **head, char *buffer)
 	if (cmd == NULL)
 		return (0);
 	if (cmd[0] == 35)
-		return (0);      
+		return (0);
 	function.f = get_op_func(cmd);
 	if (function.f == NULL)
 	{
