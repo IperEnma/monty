@@ -21,10 +21,11 @@ void (*get_op_func(char *s))(stack_t **, unsigned int)
 		{"div", f_div},
 		{"mul", f_mul},
 		{"mod", f_mod},
+		{"pchar", f_pchar},
 		{NULL, NULL}
 	};
 
-	while (i < 11)
+	while (i < 12)
 	{
 		if (strcmp(s, funciones[i].opcode) == 0)
 			return (funciones[i].f);

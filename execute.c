@@ -105,6 +105,8 @@ int exec(instruction_t function, char *integer, stack_t **head, unsigned int l)
 		status = exe_mul(head, l);
 	if (function.f == f_mod)
 		status = exe_mod(head, l);
+	if (function.f == f_pchar)
+		status = exe_pchar(head, l);
 	if (function.f == f_nop)
 		status = exe_nop(head, l);
 	return (status);
